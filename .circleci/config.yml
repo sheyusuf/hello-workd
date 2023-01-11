@@ -6,6 +6,7 @@ orbs:
   welcome: circleci/welcome-orb@0.4.1
 # Orchestrate or schedule a set of jobs
 jobs:
+<<<<<<< HEAD
  
   print_hello:
     docker:
@@ -17,14 +18,35 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - run: echo world
+=======
+  say-hello:
+    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
+    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
+    docker:
+      - image: cimg/base:stable
+    # Add steps to the job
+    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
+    steps:
+      - checkout
+      - run:
+          name: "Say hello"
+          command: "echo Hello, World!"
+
+# Invoke jobs via workflows
+# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
+>>>>>>> 9162a3d30ee828a485bc8b6975e7364fb918205e
 workflows:
   # Name the workflow "welcome"
   welcome:
     # Run the welcome/run job in its own container
     jobs:
+<<<<<<< HEAD
       - welcome/run
       - print_hello
       - print_world:
           requires:
             - print_hello
           
+=======
+      - say-hello
+>>>>>>> 9162a3d30ee828a485bc8b6975e7364fb918205e
