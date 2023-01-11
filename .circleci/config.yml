@@ -10,7 +10,12 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
+      - run:
+          name: "What is your name?"
+          command: echo shehu Yusuf
+
       - run: echo hello
+
   print_world:
     docker:
       - image: circleci/node:13.8.0
